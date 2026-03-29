@@ -17,21 +17,36 @@ You need both an API key and a token:
    https://trello.com/1/authorize?expiration=never&scope=read&response_type=token&key=YOUR_API_KEY
    ```
 
-### Run with Docker
+### Run from GitHub Container Registry
+
+A pre-built image is published to GitHub Packages on every push to `main`:
 
 ```sh
-docker build -t trello-randomizer .
-
 docker run -p 8080:8080 \
   -e TRELLO_API_KEY=your_key \
   -e TRELLO_TOKEN=your_token \
-  trello-randomizer
+  ghcr.io/dartagan/trello-randomizer:latest
+```
+
+### Run with Docker Compose
+
+```sh
+docker compose up --build
+```
+
+Credentials are read from the environment. With devenv, add them to `.envrc.local` (gitignored):
+
+```sh
+export TRELLO_API_KEY=your_key
+export TRELLO_TOKEN=your_token
 ```
 
 ### Run with Deno
 
+Deno is provided via devenv. Enter the environment, then:
+
 ```sh
-TRELLO_API_KEY=your_key TRELLO_TOKEN=your_token deno run --allow-net --allow-env main.ts
+deno run --allow-net --allow-env main.ts
 ```
 
 ## Usage
