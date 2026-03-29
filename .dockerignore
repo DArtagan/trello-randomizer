@@ -1,0 +1,9 @@
+.git
+.claude
+.devenv*
+.direnv
+.envrc*
+devenv.nix
+devenv.yaml
+LICENSE
+README.md

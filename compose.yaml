@@ -1,0 +1,8 @@
+services:
+  trello-randomizer:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      TRELLO_API_KEY: ${TRELLO_API_KEY}
+      TRELLO_TOKEN: ${TRELLO_TOKEN}
